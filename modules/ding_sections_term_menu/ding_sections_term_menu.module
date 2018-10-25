@@ -65,7 +65,7 @@ function ding_sections_term_menu_form_taxonomy_form_term_alter(&$form, &$form_st
     $form['section']['enabled'] = array(
       '#type' => 'checkbox',
       '#title' => t('Provide a menu link'),
-      '#default_value' => !empty($link['mlid']) ? !empty($link['mlid']) : TRUE  ,
+      '#default_value' => !empty($link['mlid']) ? !empty($link['mlid']) : TRUE,
     );
     $form['section']['link'] = array(
       '#type' => 'container',
@@ -216,11 +216,18 @@ function ding_sections_term_submit($form, &$form_state) {
  *   false if no menu, array with mlid if exist.
  */
 function _ding_sections_menu_exist($tid) {
-  $mlid = db_select('ding_sections_term_menu', 'etm')
-    ->fields('etm', array('mlid'))
-    ->condition('tid', $tid)
-    ->execute()
-    ->fetchField();
+  $mlid = 0;
+  try {
+    $mlid = db_select('ding_sections_term_menu', 'etm')
+      ->fields('etm', array('mlid'))
+      ->condition('tid', $tid)
+      ->execute()
+      ->fetchField();
+  }
+  catch (Exception $exception) {
+    watchdog_exception('ding_sections_term_menu', $exception);
+    drupal_set_message(t('There was an error on section edit, please try again later or contact the library.'), 'error');
+  }
 
   return $mlid;
 }
