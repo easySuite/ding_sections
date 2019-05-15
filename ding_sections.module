@@ -39,7 +39,7 @@ function ding_sections_menu() {
  */
 function ding_sections_theme($existing, $type, $theme, $path) {
   return array(
-    'editorial_base_term_widget' => array(
+    'section_term_widget' => array(
       'variables' => array(
         'description' => NULL,
         'image' => NULL,
@@ -75,10 +75,10 @@ function ding_sections_section_list_content_type_render($subtype, $conf, $panel_
 
   $img_content = $term->field_eb_section_content_image->value();
   $image = ($img_content)
-    ? image_style_url('editorial_base_content_image', $img_content['uri'])
+    ? image_style_url('section_content_image', $img_content['uri'])
     : NULL;
 
-  $block->content = theme('editorial_base_term_widget', array(
+  $block->content = theme('section_term_widget', array(
     'description' => $term->field_eb_section_summary_text->value(),
     'image' => $image,
   ));
@@ -108,7 +108,7 @@ function ding_sections_menu_alter(&$items) {
 function ding_sections_section_add_access($voc) {
   global $user;
 
-  if ($voc->machine_name == 'editorial_base') {
+  if ($voc->machine_name == 'section') {
     $access = user_access('edit terms in 8', $user);
   }
   else {
@@ -171,11 +171,11 @@ function ding_sections_secure_permissions($role) {
       'view editorialbase panels terms',
     ),
     'local administrator' => array(
-      'create editorial_base content',
-      'edit any editorial_base content',
-      'edit own editorial_base content',
-      'delete any editorial_base content',
-      'delete own editorial_base content',
+      'create section content',
+      'edit any section content',
+      'edit own section content',
+      'delete any section content',
+      'delete own section content',
       'administer editorial base',
       'view editorialbase panels terms',
       'use ipe with page manager',
@@ -210,7 +210,7 @@ function ding_sections_secure_permissions($role) {
  * Alter taxonomy term (section) form.
  */
 function ding_sections_form_taxonomy_form_term_alter(&$form, &$form_state) {
-  if (!isset($form['#bundle']) || $form['#bundle'] != 'editorial_base') {
+  if (!isset($form['#bundle']) || $form['#bundle'] != 'section') {
     return;
   }
 
@@ -233,8 +233,8 @@ function ding_sections_form_taxonomy_form_term_alter(&$form, &$form_state) {
 function ding_sections_preprocess(&$variables, $hook) {
   // Process nodes with sections.
   if ($hook == 'node') {
-    if (!empty($variables['field_editorial_base'])) {
-      $tid = $variables['field_editorial_base'][LANGUAGE_NONE][0]['tid'];
+    if (!empty($variables['field_section'])) {
+      $tid = $variables['field_section'][LANGUAGE_NONE][0]['tid'];
       $nid = $variables['nid'];
       $variables['classes_array'][] = 'section-' . $tid . '-' . $nid;
     }
@@ -246,8 +246,8 @@ function ding_sections_preprocess(&$variables, $hook) {
 
     $event_list_items = [];
     foreach ($items as $item) {
-      if (!empty($item->field_editorial_base)) {
-        $tid = $item->field_editorial_base['und'][0]['tid'];
+      if (!empty($item->field_section)) {
+        $tid = $item->field_section['und'][0]['tid'];
         $nid = $item->nid;
         $event_list_items[] = 'section-' . $tid . '-' . $nid;
       }
@@ -265,8 +265,8 @@ function ding_sections_preprocess(&$variables, $hook) {
     $widget_unique = $classes[3];
 
     foreach ($items as $item) {
-      if (!empty($item->field_editorial_base)) {
-        $tid = $item->field_editorial_base['und'][0]['tid'];
+      if (!empty($item->field_section)) {
+        $tid = $item->field_section['und'][0]['tid'];
         $nid = $item->nid;
         // Set concatenation of hook name and nodelist_id in order as a key for
         // correct pane processing.

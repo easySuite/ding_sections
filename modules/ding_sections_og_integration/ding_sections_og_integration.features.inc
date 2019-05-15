@@ -18,7 +18,7 @@ function ding_sections_og_integration_ctools_plugin_api($module = NULL, $api = N
  */
 function ding_sections_og_integration_node_info() {
   $items = array(
-    'editorial_base' => array(
+    'section' => array(
       'name' => t('Editorial base OG'),
       'base' => 'node_content',
       'description' => t('Organic Group for editorial base needs'),

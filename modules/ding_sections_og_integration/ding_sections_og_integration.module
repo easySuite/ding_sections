@@ -25,7 +25,7 @@ function ding_sections_og_integration_secure_permissions($role) {
  * Implements hook_form_alter().
  */
 function ding_sections_og_integration_form_alter(&$form, &$form_state, $form_id) {
-  $cts = variable_get('editorial_base_content_types', array());
+  $cts = variable_get('section_content_types', array());
 
   $eb_cts_form = array();
   if (!empty($cts)) {
@@ -41,7 +41,7 @@ function ding_sections_og_integration_form_alter(&$form, &$form_state, $form_id)
   }
   if (in_array($form_id, $eb_cts_form)) {
     $user_og_groups = og_get_entity_groups('user');
-    $eb_term_ids = $form['field_editorial_base'][LANGUAGE_NONE]['#options'];
+    $eb_term_ids = $form['field_section'][LANGUAGE_NONE]['#options'];
     unset($eb_term_ids['_none']);
 
     // Check if user have rights to use terms.
@@ -83,7 +83,7 @@ function ding_sections_og_integration_page_alter(&$page) {
   }
 
   $item = menu_get_object('taxonomy_term', 2, $_GET['q']);
-  if (isset($item->vocabulary_machine_name) && $item->vocabulary_machine_name == 'editorial_base') {
+  if (isset($item->vocabulary_machine_name) && $item->vocabulary_machine_name == 'section') {
     global $user;
     $groups = og_get_groups_by_user($user);
     $node_groups = isset($groups['node']) ? $groups['node'] : NULL;
@@ -101,7 +101,7 @@ function ding_sections_og_integration_page_alter(&$page) {
  *  Implements hook_form_FORM_ID_alter().
  */
 function ding_sections_og_integration_form_taxonomy_form_term_alter(&$form, &$form_state, $form_id) {
-  if (!isset($form['#bundle']) || $form['#bundle'] != 'editorial_base') {
+  if (!isset($form['#bundle']) || $form['#bundle'] != 'section') {
     return;
   }
   if (!isset($form_state['triggering_element'])) {
@@ -159,7 +159,7 @@ function ding_sections_og_integration_auto_create_og_submit(&$form, &$form_state
   }
   global $user;
   $term_name = $form_state['values']['name'];
-  $og_node_type = 'editorial_base';
+  $og_node_type = 'section';
 
   $node = new stdClass();
   $node->type = $og_node_type;
@@ -192,7 +192,7 @@ function ding_sections_og_integration_auto_create_og_submit(&$form, &$form_state
  * Implements hook_taxonomy_term_delete().
  */
 function ding_sections_og_integration_taxonomy_term_delete($term) {
-  if ($term->vocabulary_machine_name == 'editorial_base') {
+  if ($term->vocabulary_machine_name == 'section') {
     $field = field_get_items('taxonomy_term', $term, 'og_group_ref_eb');
     $eb_autocreate = $term->field_eb_autocreate_og[LANGUAGE_NONE][0]['value'];
     // Delete EB OG node only if it was created by current term.

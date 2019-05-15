@@ -13,7 +13,7 @@ function ding_sections_install() {
   ding_sections_section_shortcut_create();
   ding_sections_create_image_style();
 
-  variable_set('editorial_base_content_types', array());
+  variable_set('section_content_types', array());
 }
 
 /**
@@ -22,10 +22,10 @@ function ding_sections_install() {
 function ding_sections_uninstall() {
   _ding_sections_purge_fields();
   _ding_sections_purge_base();
-  image_style_delete(image_style_load('editorial_base_content_image'));
+  image_style_delete(image_style_load('section_content_image'));
   ding_sections_section_shortcut_delete();
 
-  variable_del('editorial_base_content_types');
+  variable_del('section_content_types');
 }
 
 /**
@@ -34,7 +34,7 @@ function ding_sections_uninstall() {
 function _ding_sections_create_base() {
   $voc = new stdClass();
   $voc->name = st('Section');
-  $voc->machine_name = 'editorial_base';
+  $voc->machine_name = 'section';
 
   taxonomy_vocabulary_save($voc);
 
@@ -98,8 +98,8 @@ function _ding_sections_create_base() {
   );
 
   $vocab_field_instance = array(
-    'taxonomy_term-editorial_base-field_eb_section_summary_text' => array(
-      'bundle' => 'editorial_base',
+    'taxonomy_term-section-field_eb_section_summary_text' => array(
+      'bundle' => 'section',
       'default_value' => NULL,
       'deleted' => 0,
       'description' => '',
@@ -130,8 +130,8 @@ function _ding_sections_create_base() {
         'weight' => 3,
       ),
     ),
-    'taxonomy_term-editorial_base-field_eb_section_content_image' => array(
-      'bundle' => 'editorial_base',
+    'taxonomy_term-section-field_eb_section_content_image' => array(
+      'bundle' => 'section',
       'deleted' => 0,
       'description' => '',
       'display' => array(
@@ -202,7 +202,7 @@ function _ding_sections_create_base() {
  */
 function _ding_sections_create_fields() {
   $field_definition = array(
-    'field_name' => 'field_editorial_base',
+    'field_name' => 'field_section',
     'type' => 'taxonomy_term_reference',
     'module' => 'taxonomy',
     'active' => '1',
@@ -212,7 +212,7 @@ function _ding_sections_create_fields() {
     'settings' => array(
       'allowed_values' => array(
         array(
-          'vocabulary' => 'editorial_base',
+          'vocabulary' => 'section',
           'parent' => '0',
         ),
       ),
@@ -229,18 +229,18 @@ function _ding_sections_purge_fields() {
   $node_types = node_type_get_types();
 
   foreach ($node_types as $type) {
-    $instance = field_read_instance('node', 'field_editorial_base', $type->type);
+    $instance = field_read_instance('node', 'field_section', $type->type);
     field_delete_instance($instance);
   }
 
-  field_delete_field('field_editorial_base');
+  field_delete_field('field_section');
 }
 
 /**
  * Remove editorial base vocabulary.
  */
 function _ding_sections_purge_base() {
-  $voc = taxonomy_vocabulary_machine_name_load('editorial_base');
+  $voc = taxonomy_vocabulary_machine_name_load('section');
   if (isset($voc->vid)) {
     taxonomy_vocabulary_delete($voc->vid);
   }
@@ -272,7 +272,7 @@ function ding_sections_section_shortcut_create() {
 
   $shortcut_set = shortcut_set_load(SHORTCUT_DEFAULT_SET_NAME);
   $shortcut_set->links[] = array(
-    'link_path' => 'admin/structure/taxonomy/editorial_base/add',
+    'link_path' => 'admin/structure/taxonomy/section/add',
     'link_title' => $t('Add section term'),
   );
 
@@ -289,7 +289,7 @@ function ding_sections_section_shortcut_delete() {
 
   $shortcut_set = shortcut_set_load(SHORTCUT_DEFAULT_SET_NAME);
   foreach ($shortcut_set->links as $key => &$link) {
-    if ($link['link_path'] == 'admin/structure/taxonomy/editorial_base/add') {
+    if ($link['link_path'] == 'admin/structure/taxonomy/section/add') {
       menu_link_delete($link['mlid']);
       unset($shortcut_set->links[$key]);
       break;
@@ -309,7 +309,7 @@ function ding_sections_section_shortcut_exists() {
   $shortcut_set = shortcut_set_load(SHORTCUT_DEFAULT_SET_NAME);
 
   foreach ($shortcut_set->links as $link) {
-    if ($link['link_path'] == 'admin/structure/taxonomy/editorial_base/add') {
+    if ($link['link_path'] == 'admin/structure/taxonomy/section/add') {
       return TRUE;
     }
   }
@@ -321,7 +321,7 @@ function ding_sections_section_shortcut_exists() {
  * Create image style for term image.
  */
 function ding_sections_create_image_style() {
-  $style = image_style_save(array('name' => 'editorial_base_content_image'));
+  $style = image_style_save(array('name' => 'section_content_image'));
 
   $effect = array(
     'name' => 'image_scale_and_crop',

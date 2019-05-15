@@ -10,9 +10,9 @@
 function ding_sections_custom_css_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'taxonomy_term-editorial_base-field_custom_css'
-  $field_instances['taxonomy_term-editorial_base-field_custom_css'] = array(
-    'bundle' => 'editorial_base',
+  // Exported field_instance: 'taxonomy_term-section-field_custom_css'
+  $field_instances['taxonomy_term-section-field_custom_css'] = array(
+    'bundle' => 'section',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',

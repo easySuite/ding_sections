@@ -10,9 +10,9 @@
 function ding_sections_og_integration_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-editorial_base-body'
-  $field_instances['node-editorial_base-body'] = array(
-    'bundle' => 'editorial_base',
+  // Exported field_instance: 'node-section-body'
+  $field_instances['node-section-body'] = array(
+    'bundle' => 'section',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',
@@ -60,9 +60,9 @@ function ding_sections_og_integration_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'node-editorial_base-group_group'
-  $field_instances['node-editorial_base-group_group'] = array(
-    'bundle' => 'editorial_base',
+  // Exported field_instance: 'node-section-group_group'
+  $field_instances['node-section-group_group'] = array(
+    'bundle' => 'section',
     'default_value' => array(
       0 => array(
         'value' => 1,
@@ -124,9 +124,9 @@ function ding_sections_og_integration_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-editorial_base-field_eb_autocreate_og'
-  $field_instances['taxonomy_term-editorial_base-field_eb_autocreate_og'] = array(
-    'bundle' => 'editorial_base',
+  // Exported field_instance: 'taxonomy_term-section-field_eb_autocreate_og'
+  $field_instances['taxonomy_term-section-field_eb_autocreate_og'] = array(
+    'bundle' => 'section',
     'default_value' => array(
       0 => array(
         'value' => 0,
@@ -161,9 +161,9 @@ function ding_sections_og_integration_field_default_field_instances() {
     ),
   );
 
-  // Exported field_instance: 'taxonomy_term-editorial_base-og_group_ref_eb'
-  $field_instances['taxonomy_term-editorial_base-og_group_ref_eb'] = array(
-    'bundle' => 'editorial_base',
+  // Exported field_instance: 'taxonomy_term-section-og_group_ref_eb'
+  $field_instances['taxonomy_term-section-og_group_ref_eb'] = array(
+    'bundle' => 'section',
     'default_value' => NULL,
     'deleted' => 0,
     'description' => '',

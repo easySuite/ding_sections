@@ -10,7 +10,7 @@
  * Act when a term is created and trigger panel variant creation.
  */
 function ding_sections_term_panel_taxonomy_term_insert($term) {
-  if ($term->vocabulary_machine_name == 'editorial_base') {
+  if ($term->vocabulary_machine_name == 'section') {
     $term_page = field_get_items('taxonomy_term', $term, 'field_term_page');
     if ($term_page[0]['value'] == 1) {
       ding_sections_term_panel_create_term_variant($term);
@@ -22,7 +22,7 @@ function ding_sections_term_panel_taxonomy_term_insert($term) {
  * Implements hook_taxonomy_term_update().
  */
 function ding_sections_term_panel_taxonomy_term_update($term) {
-  if ($term->vocabulary_machine_name == 'editorial_base') {
+  if ($term->vocabulary_machine_name == 'section') {
     $term_page = field_get_items('taxonomy_term', $term, 'field_term_page');
     $term_page_old = field_get_items('taxonomy_term', $term->original, 'field_term_page');
 
@@ -85,7 +85,7 @@ function ding_sections_term_panel_create_term_variant($term) {
     return FALSE;
   }
 
-  $handler_name = variable_get('editorial_base_term_panel_handler', 'term_editorial_base_panel_context');
+  $handler_name = variable_get('section_term_panel_handler', 'term_section_panel_context');
   if (empty($handler_name)) {
     drupal_set_message(t('Not possible to create term_view variant. Firstly, you should choose @handler', array('@handler' => l('handler', 'admin/config/edbase/term_panel'))), 'warning');
     return FALSE;
@@ -94,11 +94,11 @@ function ding_sections_term_panel_create_term_variant($term) {
   $task = page_manager_get_task('term_view');
   $handlers = page_manager_load_task_handlers($task, '');
 
-  if (!isset($handlers['term_editorial_base_panel_context'])) {
+  if (!isset($handlers['term_section_panel_context'])) {
     return FALSE;
   }
 
-  $export = page_manager_export_task_handler($handlers['term_editorial_base_panel_context']);
+  $export = page_manager_export_task_handler($handlers['term_section_panel_context']);
   ob_start();
   eval($export);
   ob_end_clean();
@@ -133,7 +133,7 @@ function ding_sections_term_panel_create_term_variant($term) {
  *  Implements hook_form_FORM_ID_alter().
  */
 function ding_sections_term_panel_form_taxonomy_form_term_alter(&$form, &$form_state, $form_id) {
-  if (!isset($form['#bundle']) || $form['#bundle'] != 'editorial_base') {
+  if (!isset($form['#bundle']) || $form['#bundle'] != 'section') {
     return;
   }
 
@@ -154,7 +154,7 @@ function ding_sections_term_panel_form_taxonomy_form_term_alter(&$form, &$form_s
  * Implements hook_taxonomy_term_delete().
  */
 function ding_sections_term_panel_taxonomy_term_delete($term) {
-  if ($term->vocabulary_machine_name == 'editorial_base' && $term->field_term_page[LANGUAGE_NONE][0]['value'] == 1) {
+  if ($term->vocabulary_machine_name == 'section' && $term->field_term_page[LANGUAGE_NONE][0]['value'] == 1) {
     $tid = $term->tid;
     $task = page_manager_get_task('term_view');
     $handlers = page_manager_load_task_handlers($task, '');

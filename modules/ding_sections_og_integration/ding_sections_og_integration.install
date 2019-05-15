@@ -8,7 +8,7 @@
  * Implements hook_uninstall().
  */
 function ding_sections_og_integration_uninstall() {
-  $type = 'editorial_base';
+  $type = 'section';
   if (node_type_load($type)) {
     // Remove all related nodes.
     $results = db_select('node', 'n')
@@ -24,7 +24,7 @@ function ding_sections_og_integration_uninstall() {
     }
 
     // Remove CT.
-    node_type_delete('editorial_base');
+    node_type_delete('section');
     variable_del('node_preview_' . $type);
   }
 }

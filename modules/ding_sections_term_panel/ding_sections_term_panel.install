@@ -25,7 +25,7 @@ function ding_sections_term_panel_uninstall() {
  */
 function ding_sections_term_panel_update_7001() {
   $panel_patterns = array(
-    'term_editorial_base_panel_context',
+    'term_section_panel_context',
     'term_view_panel_context_tid_',
   );
 
@@ -48,7 +48,7 @@ function ding_sections_term_panel_update_7001() {
 
   ding_sections_term_panel_create_variant();
 
-  $voc = taxonomy_vocabulary_machine_name_load('editorial_base');
+  $voc = taxonomy_vocabulary_machine_name_load('section');
   $tree = taxonomy_get_tree($voc->vid);
   $tids = array();
 
@@ -72,7 +72,7 @@ function ding_sections_term_panel_update_7002() {
   // Load my task plugin
   $task = page_manager_get_task('term_view');
   $handlers = page_manager_load_sorted_handlers($task, '', TRUE);
-  $handler = $handlers['term_editorial_base_panel_context'];
+  $handler = $handlers['term_section_panel_context'];
   if (!empty($handler)) {
     $handler->conf['pipeline'] = 'standard';
   }
@@ -111,7 +111,7 @@ function ding_sections_term_panel_create_fields() {
   field_create_field($field);
 
   $instance = array(
-    'bundle' => 'editorial_base',
+    'bundle' => 'section',
     'default_value' => array(
       0 => array(
         'value' => 0,
@@ -152,7 +152,7 @@ function ding_sections_term_panel_create_fields() {
  * Remove term panel checkbox field and instance.
  */
 function ding_sections_term_panel_purge_field() {
-  $instance = field_info_instance('taxonomy_term', 'field_term_page', 'editorial_base');
+  $instance = field_info_instance('taxonomy_term', 'field_term_page', 'section');
   if (!empty($instance)) {
     field_delete_instance($instance);
   }
@@ -167,7 +167,7 @@ function ding_sections_term_panel_create_variant() {
   $handler = new stdClass();
   $handler->disabled = FALSE; /* Edit this to true to make a default handler disabled initially */
   $handler->api_version = 1;
-  $handler->name = 'term_editorial_base_panel_context';
+  $handler->name = 'term_section_panel_context';
   $handler->task = 'term_view';
   $handler->subtask = '';
   $handler->handler = 'panel_context';
@@ -188,7 +188,7 @@ function ding_sections_term_panel_create_variant() {
           'name' => 'entity_bundle:taxonomy_term',
           'settings' => array(
             'type' => array(
-              'editorial_base' => 'editorial_base',
+              'section' => 'section',
             ),
           ),
           'context' => 'argument_term_1',
@@ -547,7 +547,7 @@ function ding_sections_term_panel_create_variant() {
 function ding_sections_term_panel_delete_variant() {
   ctools_include('export');
 
-  $vocabulary = taxonomy_vocabulary_machine_name_load('editorial_base');
+  $vocabulary = taxonomy_vocabulary_machine_name_load('section');
   $terms = entity_load('taxonomy_term', FALSE, array('vid' => $vocabulary->vid));
   foreach ($terms as $term) {
     $name = 'term_view_panel_context_tid_' . $term->tid;
@@ -555,6 +555,6 @@ function ding_sections_term_panel_delete_variant() {
     ctools_export_crud_delete('page_manager_handlers', $page);
   }
 
-  $page = ctools_export_crud_load('page_manager_handlers', 'term_editorial_base_panel_context');
+  $page = ctools_export_crud_load('page_manager_handlers', 'term_section_panel_context');
   ctools_export_crud_delete('page_manager_handlers', $page);
 }

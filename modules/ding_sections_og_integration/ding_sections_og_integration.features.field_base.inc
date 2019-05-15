@@ -104,7 +104,7 @@ function ding_sections_og_integration_field_default_field_bases() {
           'type' => 'none',
         ),
         'target_bundles' => array(
-          'editorial_base' => 'editorial_base',
+          'section' => 'section',
         ),
       ),
       'handler_submit' => 'Change handler',
