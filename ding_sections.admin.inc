@@ -11,7 +11,7 @@
  * @return string
  *   HTML for the block.
  */
-function easyddb_editorial_base_admin_menu_block_page() {
+function ding_sections_admin_menu_block_page() {
   $item = menu_get_item();
   $content = system_admin_menu_block($item);
 
@@ -31,7 +31,7 @@ function easyddb_editorial_base_admin_menu_block_page() {
  * Interface for selecting node types which should be a part
  * of teh editorial system.
  */
-function easyddb_editorial_base_admin_content_types($form, $form_state) {
+function ding_sections_admin_content_types($form, $form_state) {
   $node_types = node_type_get_types();
   $node_bundles = array();
 
@@ -47,7 +47,7 @@ function easyddb_editorial_base_admin_content_types($form, $form_state) {
     '#default_value' => variable_get('editorial_base_content_types', array()),
   );
 
-  $form['#submit'][] = 'easyddb_editorial_base_admin_content_types_submit';
+  $form['#submit'][] = 'ding_sections_admin_content_types_submit';
 
   return system_settings_form($form);
 }
@@ -58,7 +58,7 @@ function easyddb_editorial_base_admin_content_types($form, $form_state) {
  * Create hidden fields for selected content types that will contain
  * editorial status of the node.
  */
-function easyddb_editorial_base_admin_content_types_submit($form, $form_state) {
+function ding_sections_admin_content_types_submit($form, $form_state) {
   $input = $form_state['input'];
   $node_types = array_filter($input['editorial_base_content_types']);
   $last_setting = array_filter(variable_get('editorial_base_content_types', array()));

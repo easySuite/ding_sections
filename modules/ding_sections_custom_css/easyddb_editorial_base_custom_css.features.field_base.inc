@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * easyddb_editorial_base_custom_css.features.field_base.inc
+ * ding_sections_custom_css.features.field_base.inc
  */
 
 /**
  * Implements hook_field_default_field_bases().
  */
-function easyddb_editorial_base_custom_css_field_default_field_bases() {
+function ding_sections_custom_css_field_default_field_bases() {
   $field_bases = array();
 
   // Exported field_base: 'field_custom_css'

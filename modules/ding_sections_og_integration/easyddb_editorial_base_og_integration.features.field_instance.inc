@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * easyddb_editorial_base_og_integration.features.field_instance.inc
+ * ding_sections_og_integration.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function easyddb_editorial_base_og_integration_field_default_field_instances() {
+function ding_sections_og_integration_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'node-editorial_base-body'

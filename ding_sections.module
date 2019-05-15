@@ -10,16 +10,16 @@
 /**
  * Implements hook_menu().
  */
-function easyddb_editorial_base_menu() {
+function ding_sections_menu() {
   $menu = array();
 
   $menu['admin/config/edbase'] = array(
     'title' => 'Editorial Base',
     'description' => 'Editorial Base settings',
     'access arguments' => array('administer editorial base'),
-    'page callback' => 'easyddb_editorial_base_admin_menu_block_page',
+    'page callback' => 'ding_sections_admin_menu_block_page',
     'page arguments' => array(),
-    'file' => 'easyddb_editorial_base.admin.inc',
+    'file' => 'ding_sections.admin.inc',
   );
 
   $menu['admin/config/edbase/content'] = array(
@@ -27,8 +27,8 @@ function easyddb_editorial_base_menu() {
     'description' => 'Node bundles that are a part of editorial base system',
     'access arguments' => array('administer editorial base'),
     'page callback' => 'drupal_get_form',
-    'page arguments' => array('easyddb_editorial_base_admin_content_types'),
-    'file' => 'easyddb_editorial_base.admin.inc',
+    'page arguments' => array('ding_sections_admin_content_types'),
+    'file' => 'ding_sections.admin.inc',
   );
 
   return $menu;
@@ -37,7 +37,7 @@ function easyddb_editorial_base_menu() {
 /**
  * Implements hook_theme().
  */
-function easyddb_editorial_base_theme($existing, $type, $theme, $path) {
+function ding_sections_theme($existing, $type, $theme, $path) {
   return array(
     'editorial_base_term_widget' => array(
       'variables' => array(
@@ -53,7 +53,7 @@ function easyddb_editorial_base_theme($existing, $type, $theme, $path) {
 /**
  * Implements hook_ctools_plugin_directory().
  */
-function easyddb_editorial_base_ctools_plugin_directory($owner, $plugin_type) {
+function ding_sections_ctools_plugin_directory($owner, $plugin_type) {
   if ($owner == 'ctools' && $plugin_type == 'content_types') {
     return 'plugins/content_types';
   }
@@ -64,7 +64,7 @@ function easyddb_editorial_base_ctools_plugin_directory($owner, $plugin_type) {
  *
  * @throws \Exception
  */
-function easyddb_editorial_base_section_list_content_type_render($subtype, $conf, $panel_args, $context) {
+function ding_sections_section_list_content_type_render($subtype, $conf, $panel_args, $context) {
   $block = new stdClass();
   $block->content = '';
 
@@ -89,8 +89,8 @@ function easyddb_editorial_base_section_list_content_type_render($subtype, $conf
 /**
  * Implements hook_menu_alter().
  */
-function easyddb_editorial_base_menu_alter(&$items) {
-  $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name/add']['access callback'] = 'easyddb_editorial_base_section_add_access';
+function ding_sections_menu_alter(&$items) {
+  $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name/add']['access callback'] = 'ding_sections_section_add_access';
   $items['admin/structure/taxonomy/%taxonomy_vocabulary_machine_name/add']['access arguments'] = array(3);
 }
 
@@ -103,9 +103,9 @@ function easyddb_editorial_base_menu_alter(&$items) {
  * @return bool
  *   Access value.
  *
- * @see easyddb_editorial_base_menu_alter()
+ * @see ding_sections_menu_alter()
  */
-function easyddb_editorial_base_section_add_access($voc) {
+function ding_sections_section_add_access($voc) {
   global $user;
 
   if ($voc->machine_name == 'editorial_base') {
@@ -121,7 +121,7 @@ function easyddb_editorial_base_section_add_access($voc) {
 /**
  * Implements hook_permission().
  */
-function easyddb_editorial_base_permission() {
+function ding_sections_permission() {
   $perm = array();
 
   $perm['administer editorial base'] = array(
@@ -143,7 +143,7 @@ function easyddb_editorial_base_permission() {
 /**
  * Implements hook_secure_permissions().
  */
-function easyddb_editorial_base_secure_permissions($role) {
+function ding_sections_secure_permissions($role) {
   $permissions = array(
     'anonymous user' => array(
       'view editorialbase panels terms',
@@ -209,7 +209,7 @@ function easyddb_editorial_base_secure_permissions($role) {
  *
  * Alter taxonomy term (section) form.
  */
-function easyddb_editorial_base_form_taxonomy_form_term_alter(&$form, &$form_state) {
+function ding_sections_form_taxonomy_form_term_alter(&$form, &$form_state) {
   if (!isset($form['#bundle']) || $form['#bundle'] != 'editorial_base') {
     return;
   }
@@ -230,7 +230,7 @@ function easyddb_editorial_base_form_taxonomy_form_term_alter(&$form, &$form_sta
 /**
  * Implements hook_preprocess().
  */
-function easyddb_editorial_base_preprocess(&$variables, $hook) {
+function ding_sections_preprocess(&$variables, $hook) {
   // Process nodes with sections.
   if ($hook == 'node') {
     if (!empty($variables['field_editorial_base'])) {
@@ -253,8 +253,8 @@ function easyddb_editorial_base_preprocess(&$variables, $hook) {
       }
     }
 
-    drupal_add_js(['easyddb_editorial_base' => ['eb_event_list_items' => $event_list_items]], 'setting');
-    drupal_add_js(drupal_get_path('module', 'easyddb_editorial_base') . '/js/easyddb_editorial_base.js', 'file');
+    drupal_add_js(['ding_sections' => ['eb_event_list_items' => $event_list_items]], 'setting');
+    drupal_add_js(drupal_get_path('module', 'ding_sections') . '/js/ding_sections.js', 'file');
   }
 
   // Process ding_nodelist widgets.
@@ -278,7 +278,7 @@ function easyddb_editorial_base_preprocess(&$variables, $hook) {
       }
     }
 
-    drupal_add_js(['easyddb_editorial_base' => ['nodelist_items' => $nodelist_items]], 'setting');
-    drupal_add_js(drupal_get_path('module', 'easyddb_editorial_base') . '/js/easyddb_editorial_base.js', 'file');
+    drupal_add_js(['ding_sections' => ['nodelist_items' => $nodelist_items]], 'setting');
+    drupal_add_js(drupal_get_path('module', 'ding_sections') . '/js/ding_sections.js', 'file');
   }
 }

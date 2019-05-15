@@ -4,5 +4,5 @@ package = "easyOPAC"
 core = "7.x"
 version = "7.x-0.1"
 
-dependencies[] = easyddb_editorial_base
+dependencies[] = ding_sections
 

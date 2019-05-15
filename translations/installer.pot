@@ -3,8 +3,8 @@
 # LANGUAGE translation of Drupal (installer)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 # Generated from files:
-#  easyddb_editorial_base.install: n/a
-#  modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.install: n/a
+#  ding_sections.install: n/a
+#  modules/ding_sections_term_menu/ding_sections_term_menu.install: n/a
 #
 #, fuzzy
 msgid ""
@@ -19,23 +19,23 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: (duplicate) easyddb_editorial_base.install:97 
+#: (duplicate) ding_sections.install:97 
 msgid "Add section term"
 msgstr ""
 
-#: easyddb_editorial_base.install:32
+#: ding_sections.install:32
 msgid "Section"
 msgstr ""
 
-#: modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.install:12
+#: modules/ding_sections_term_menu/ding_sections_term_menu.install:12
 msgid "Map term ids to menu list id."
 msgstr ""
 
-#: modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.install:15
+#: modules/ding_sections_term_menu/ding_sections_term_menu.install:15
 msgid "Term id."
 msgstr ""
 
-#: modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.install:21
+#: modules/ding_sections_term_menu/ding_sections_term_menu.install:21
 msgid "Menu link id."
 msgstr ""
 

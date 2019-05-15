@@ -4,11 +4,11 @@
 (function ($) {
   "use strict";
 
-  Drupal.behaviors.easyddb_editorial_base = {
+  Drupal.behaviors.ding_sections = {
     attach: function () {
 
       // Adding classes to ding_event_calendar event list.
-      let eb_event_list_items = Drupal.settings.easyddb_editorial_base.eb_event_list_items;
+      let eb_event_list_items = Drupal.settings.ding_sections.eb_event_list_items;
       if (eb_event_list_items !== undefined) {
         if (eb_event_list_items.length !== 0) {
           let all_list_items = $('#eventList').find('.event-item');
@@ -20,7 +20,7 @@
       }
 
       // Adding classes to ding_nodelist widgets.
-      let nodelist_groups = Drupal.settings.easyddb_editorial_base.nodelist_items;
+      let nodelist_groups = Drupal.settings.ding_sections.nodelist_items;
       if (nodelist_groups !== undefined) {
         $.each(nodelist_groups, function (unique_id, data_array) {
           let nodelist_group;

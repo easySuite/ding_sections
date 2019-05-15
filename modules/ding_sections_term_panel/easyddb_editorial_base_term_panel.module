@@ -9,11 +9,11 @@
  *
  * Act when a term is created and trigger panel variant creation.
  */
-function easyddb_editorial_base_term_panel_taxonomy_term_insert($term) {
+function ding_sections_term_panel_taxonomy_term_insert($term) {
   if ($term->vocabulary_machine_name == 'editorial_base') {
     $term_page = field_get_items('taxonomy_term', $term, 'field_term_page');
     if ($term_page[0]['value'] == 1) {
-      easyddb_editorial_base_term_panel_create_term_variant($term);
+      ding_sections_term_panel_create_term_variant($term);
     }
   }
 }
@@ -21,7 +21,7 @@ function easyddb_editorial_base_term_panel_taxonomy_term_insert($term) {
 /**
  * Implements hook_taxonomy_term_update().
  */
-function easyddb_editorial_base_term_panel_taxonomy_term_update($term) {
+function ding_sections_term_panel_taxonomy_term_update($term) {
   if ($term->vocabulary_machine_name == 'editorial_base') {
     $term_page = field_get_items('taxonomy_term', $term, 'field_term_page');
     $term_page_old = field_get_items('taxonomy_term', $term->original, 'field_term_page');
@@ -71,7 +71,7 @@ function easyddb_editorial_base_term_panel_taxonomy_term_update($term) {
       }
       // Create new handler.
       else{
-        easyddb_editorial_base_term_panel_create_term_variant($term);
+        ding_sections_term_panel_create_term_variant($term);
       }
     }
   }
@@ -80,7 +80,7 @@ function easyddb_editorial_base_term_panel_taxonomy_term_update($term) {
 /**
  * Create a panel variant based on the node created.
  */
-function easyddb_editorial_base_term_panel_create_term_variant($term) {
+function ding_sections_term_panel_create_term_variant($term) {
   if (!is_object($term) || !isset($term->tid)) {
     return FALSE;
   }
@@ -132,20 +132,20 @@ function easyddb_editorial_base_term_panel_create_term_variant($term) {
 /**
  *  Implements hook_form_FORM_ID_alter().
  */
-function easyddb_editorial_base_term_panel_form_taxonomy_form_term_alter(&$form, &$form_state, $form_id) {
+function ding_sections_term_panel_form_taxonomy_form_term_alter(&$form, &$form_state, $form_id) {
   if (!isset($form['#bundle']) || $form['#bundle'] != 'editorial_base') {
     return;
   }
 
   if (!isset($form_state['triggering_element'])) {
     // Add term page into tab.
-    $form['easyddb_editorial_base']['term_panel'] = array(
+    $form['ding_sections']['term_panel'] = array(
       '#type' => 'fieldset',
       '#title' => t('Term page'),
       '#group' => 'section_tabs',
     );
 
-    $form['easyddb_editorial_base']['term_panel']['field_term_page'] = $form['field_term_page'];
+    $form['ding_sections']['term_panel']['field_term_page'] = $form['field_term_page'];
     unset($form['field_term_page']);
   }
 }
@@ -153,7 +153,7 @@ function easyddb_editorial_base_term_panel_form_taxonomy_form_term_alter(&$form,
 /**
  * Implements hook_taxonomy_term_delete().
  */
-function easyddb_editorial_base_term_panel_taxonomy_term_delete($term) {
+function ding_sections_term_panel_taxonomy_term_delete($term) {
   if ($term->vocabulary_machine_name == 'editorial_base' && $term->field_term_page[LANGUAGE_NONE][0]['value'] == 1) {
     $tid = $term->tid;
     $task = page_manager_get_task('term_view');

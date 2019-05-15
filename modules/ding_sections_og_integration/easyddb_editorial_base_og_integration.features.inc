@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * easyddb_editorial_base_og_integration.features.inc
+ * ding_sections_og_integration.features.inc
  */
 
 /**
  * Implements hook_ctools_plugin_api().
  */
-function easyddb_editorial_base_og_integration_ctools_plugin_api($module = NULL, $api = NULL) {
+function ding_sections_og_integration_ctools_plugin_api($module = NULL, $api = NULL) {
   if ($module == "strongarm" && $api == "strongarm") {
     return array("version" => "1");
   }
@@ -16,7 +16,7 @@ function easyddb_editorial_base_og_integration_ctools_plugin_api($module = NULL,
 /**
  * Implements hook_node_info().
  */
-function easyddb_editorial_base_og_integration_node_info() {
+function ding_sections_og_integration_node_info() {
   $items = array(
     'editorial_base' => array(
       'name' => t('Editorial base OG'),

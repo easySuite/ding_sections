@@ -7,7 +7,7 @@
 /**
  *  Implements hook_form_FORM_ID_alter().
  */
-function easyddb_editorial_base_term_menu_form_taxonomy_form_term_alter(&$form, &$form_state) {
+function ding_sections_term_menu_form_taxonomy_form_term_alter(&$form, &$form_state) {
   if (!isset($form['#bundle']) || $form['#bundle'] != 'editorial_base') {
     return;
   }
@@ -31,7 +31,7 @@ function easyddb_editorial_base_term_menu_form_taxonomy_form_term_alter(&$form, 
     );
     if (!empty($form['#term']['tid'])) {
       // Check if term already have menu.
-      $mlid = _easyddb_editorial_base_menu_exist($form['#term']['tid']);
+      $mlid = _ding_sections_menu_exist($form['#term']['tid']);
       if ($mlid) {
         $link = menu_link_load($mlid);
       }
@@ -116,15 +116,15 @@ function easyddb_editorial_base_term_menu_form_taxonomy_form_term_alter(&$form, 
       '#default_value' => $link['weight'],
       '#description' => t('Menu links with smaller weights are displayed before links with larger weights.'),
     );
-    $form['#validate'][] = 'easyddb_editorial_base_term_validate';
-    $form['#submit'][] = 'easyddb_editorial_base_term_submit';
+    $form['#validate'][] = 'ding_sections_term_validate';
+    $form['#submit'][] = 'ding_sections_term_submit';
   }
 }
 
 /**
  * Callback function for term form enabled.
  */
-function easyddb_editorial_base_term_validate($form, &$form_state) {
+function ding_sections_term_validate($form, &$form_state) {
   if ($form_state['values']['editorial_base']['enabled'] == 1) {
     $menu_parameters = array(
       'link_title' => 'Menu link title',
@@ -142,13 +142,13 @@ function easyddb_editorial_base_term_validate($form, &$form_state) {
 /**
  * Callback function for term form save.
  */
-function easyddb_editorial_base_term_submit($form, $form_state) {
+function ding_sections_term_submit($form, $form_state) {
   if (isset($form_state['term']->tid)) {
     $tid = $form_state['term']->tid;
-    $mlid = _easyddb_editorial_base_menu_exist($tid);
+    $mlid = _ding_sections_menu_exist($tid);
     if ($form_state['values']['editorial_base']['enabled'] == 0) {
       if ($mlid) {
-        _easyddb_editorial_base_remove_term_menu($tid, $mlid);
+        _ding_sections_remove_term_menu($tid, $mlid);
         drupal_set_message(t('Menu for @term was deleted.', array('@term' => $form_state['term']->name)), 'status');
       }
     }
@@ -173,7 +173,7 @@ function easyddb_editorial_base_term_submit($form, $form_state) {
       }
 
       if (empty($mlid)) {
-        _easyddb_editorial_base_create_term_menu($tid, $new_mlid);
+        _ding_sections_create_term_menu($tid, $new_mlid);
       }
     }
   }
@@ -185,7 +185,7 @@ function easyddb_editorial_base_term_submit($form, $form_state) {
  * @param $tid term id.
  * @return mixed false if no menu, array with mlid if exist.
  */
-function _easyddb_editorial_base_menu_exist($tid) {
+function _ding_sections_menu_exist($tid) {
   $mlid = db_select('eb_term_menu', 'etm')
     ->fields('etm', array('mlid'))
     ->condition('tid', $tid)
@@ -201,7 +201,7 @@ function _easyddb_editorial_base_menu_exist($tid) {
  * @param $tid term id.
  * @param $mlid menu list id.
  */
-function _easyddb_editorial_base_create_term_menu($tid, $mlid) {
+function _ding_sections_create_term_menu($tid, $mlid) {
   $fields = array(
     'tid' => $tid,
     'mlid' => $mlid,
@@ -220,7 +220,7 @@ function _easyddb_editorial_base_create_term_menu($tid, $mlid) {
  * @param $tid term id.
  * @param $mlid menu list id.
  */
-function _easyddb_editorial_base_remove_term_menu($tid, $mlid) {
+function _ding_sections_remove_term_menu($tid, $mlid) {
   menu_link_delete($mlid);
   db_delete('eb_term_menu')
     ->condition('tid', $tid)

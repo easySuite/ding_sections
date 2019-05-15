@@ -3,21 +3,21 @@
 # LANGUAGE translation of Drupal (general)
 # Copyright YEAR NAME <EMAIL@ADDRESS>
 # Generated from files:
-#  profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.admin.inc: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.api.inc: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.module: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.install: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.info: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_custom_css/easyddb_editorial_base_custom_css.info: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.info: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.info: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_panel/easyddb_editorial_base_term_panel.info: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_custom_css/easyddb_editorial_base_custom_css.features.field_instance.inc: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.features.field_instance.inc: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.module: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.features.inc: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_panel/easyddb_editorial_base_term_panel.module: n/a
-#  profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.module: n/a
+#  profiles/ding2/modules/ding_sections/ding_sections.admin.inc: n/a
+#  profiles/ding2/modules/ding_sections/ding_sections.api.inc: n/a
+#  profiles/ding2/modules/ding_sections/ding_sections.module: n/a
+#  profiles/ding2/modules/ding_sections/ding_sections.install: n/a
+#  profiles/ding2/modules/ding_sections/ding_sections.info: n/a
+#  profiles/ding2/modules/ding_sections/modules/ding_sections_custom_css/ding_sections_custom_css.info: n/a
+#  profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.info: n/a
+#  profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.info: n/a
+#  profiles/ding2/modules/ding_sections/modules/ding_sections_term_panel/ding_sections_term_panel.info: n/a
+#  profiles/ding2/modules/ding_sections/modules/ding_sections_custom_css/ding_sections_custom_css.features.field_instance.inc: n/a
+#  profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.features.field_instance.inc: n/a
+#  profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.module: n/a
+#  profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.features.inc: n/a
+#  profiles/ding2/modules/ding_sections/modules/ding_sections_term_panel/ding_sections_term_panel.module: n/a
+#  profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.module: n/a
 #
 #, fuzzy
 msgid ""
@@ -32,195 +32,195 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.admin.inc:22
+#: profiles/ding2/modules/ding_sections/ding_sections.admin.inc:22
 msgid "You do not have any administrative items."
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.admin.inc:44
+#: profiles/ding2/modules/ding_sections/ding_sections.admin.inc:44
 msgid "Available node types"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.admin.inc:45
+#: profiles/ding2/modules/ding_sections/ding_sections.admin.inc:45
 msgid "Select which nodes should be a part of editorial base system"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.admin.inc:112
+#: profiles/ding2/modules/ding_sections/ding_sections.admin.inc:112
 msgid "Exception thrown when creating field instance @instance for bundle @bundle."
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.admin.inc:113
+#: profiles/ding2/modules/ding_sections/ding_sections.admin.inc:113
 msgid "Error when creating field instance <strong>@instance</strong> for bundle <strong>@bundle</strong>."
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.admin.inc:117
+#: profiles/ding2/modules/ding_sections/ding_sections.admin.inc:117
 msgid "Field instance @instance for bundle @bundle <strong>created</strong> successfully."
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.admin.inc:135
+#: profiles/ding2/modules/ding_sections/ding_sections.admin.inc:135
 msgid "Field instance @instance for bundle @bundle <strong>deleted</strong> successfully."
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.api.inc:17
+#: profiles/ding2/modules/ding_sections/ding_sections.api.inc:17
 msgid "Example tab title"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.api.inc:23
+#: profiles/ding2/modules/ding_sections/ding_sections.api.inc:23
 msgid "Example checkbox in a tab"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.module:16
+#: profiles/ding2/modules/ding_sections/ding_sections.module:16
 msgid "Editorial Base"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.module:17
+#: profiles/ding2/modules/ding_sections/ding_sections.module:17
 msgid "Editorial Base settings"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.module:25
+#: profiles/ding2/modules/ding_sections/ding_sections.module:25
 msgid "Content types"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.module:26
+#: profiles/ding2/modules/ding_sections/ding_sections.module:26
 msgid "Node bundles that are a part of editorial base system"
 msgstr ""
 
-#: (duplicate) profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.install:109
+#: (duplicate) profiles/ding2/modules/ding_sections/ding_sections.install:109
 msgid "Add section term"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.info:0
+#: profiles/ding2/modules/ding_sections/ding_sections.info:0
 msgid "easyOPAC Editorial Base"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.info:0
+#: profiles/ding2/modules/ding_sections/ding_sections.info:0
 msgid "Provides integration of content in the editorial base system."
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/easyddb_editorial_base.info:0 profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_custom_css/easyddb_editorial_base_custom_css.info:0 profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_header_image/easyddb_editorial_base_header_image.info:0 profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.info:0 profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.info:0 profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_panel/easyddb_editorial_base_term_panel.info:0
+#: profiles/ding2/modules/ding_sections/ding_sections.info:0 profiles/ding2/modules/ding_sections/modules/ding_sections_custom_css/ding_sections_custom_css.info:0 profiles/ding2/modules/ding_sections/modules/ding_sections_header_image/ding_sections_header_image.info:0 profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.info:0 profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.info:0 profiles/ding2/modules/ding_sections/modules/ding_sections_term_panel/ding_sections_term_panel.info:0
 msgid "easyOPAC"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_custom_css/easyddb_editorial_base_custom_css.features.field_instance.inc:49
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_custom_css/ding_sections_custom_css.features.field_instance.inc:49
 msgid "Custom CSS"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_custom_css/easyddb_editorial_base_custom_css.info:0
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_custom_css/ding_sections_custom_css.info:0
 msgid "easyOPAC Editorial Base Custom CSS"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_custom_css/easyddb_editorial_base_custom_css.info:0
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_custom_css/ding_sections_custom_css.info:0
 msgid "Add custom CSS to Editorial Base term nodes"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.features.field_instance.inc:220
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.features.field_instance.inc:220
 msgid "Auto create new OG"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.features.field_instance.inc:221
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.features.field_instance.inc:221
 msgid "Body"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.features.field_instance.inc:222
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.features.field_instance.inc:222
 msgid "Determine if this is an OG group."
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.features.field_instance.inc:223
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.features.field_instance.inc:223
 msgid "Group"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.features.field_instance.inc:224 profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.module:115
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.features.field_instance.inc:224 profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.module:115
 msgid "Groups audience"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.features.inc:22
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.features.inc:22
 msgid "Editorial base OG"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.features.inc:24
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.features.inc:24
 msgid "Organic Group for editorial base needs"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.features.inc:26
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.features.inc:26
 msgid "Title"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.module:110 profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_panel/easyddb_editorial_base_term_panel.module:144
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.module:110 profiles/ding2/modules/ding_sections/modules/ding_sections_term_panel/ding_sections_term_panel.module:144
 msgid "Term page"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_og_integration/easyddb_editorial_base_og_integration.info:0
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_og_integration/ding_sections_og_integration.info:0
 msgid "easyOPAC Editorial Base OG integration"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.module:51
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.module:51
 msgid "Menu settings"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.module:65
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.module:65
 msgid "Provide a menu link"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.module:84
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.module:84
 msgid "Menu link title"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.module:90
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.module:90
 msgid "Description"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.module:93
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.module:93
 msgid "Shown when hovering over the menu link."
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.module:107
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.module:107
 msgid "Parent item"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.module:114
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.module:114
 msgid "Weight"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.module:117
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.module:117
 msgid "Menu links with smaller weights are displayed before links with larger weights."
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.module:136
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.module:136
 msgid "@parameter_name not set."
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.module:152
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.module:152
 msgid "Menu for @term was deleted."
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.module:172
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.module:172
 msgid "Menu wasn't created"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.info:0
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.info:0
 msgid "easyOPAC Editorial Base Term Menu"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_menu/easyddb_editorial_base_term_menu.info:0
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_menu/ding_sections_term_menu.info:0
 msgid "Create menu for EB term."
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_panel/easyddb_editorial_base_term_panel.module:90
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_panel/ding_sections_term_panel.module:90
 msgid "Not possible to create term_view variant. Firstly, you should choose @handler"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_panel/easyddb_editorial_base_term_panel.module:114
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_panel/ding_sections_term_panel.module:114
 msgid "Term being viewed has tid \"@tid\""
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_panel/easyddb_editorial_base_term_panel.module:121
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_panel/ding_sections_term_panel.module:121
 msgid "Edtitorial base term (@term)"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_panel/easyddb_editorial_base_term_panel.info:0
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_panel/ding_sections_term_panel.info:0
 msgid "easyOPAC Editorial Base Term Panel"
 msgstr ""
 
-#: profiles/ding2/modules/easyddb_editorial_base/modules/easyddb_editorial_base_term_panel/easyddb_editorial_base_term_panel.info:0
+#: profiles/ding2/modules/ding_sections/modules/ding_sections_term_panel/ding_sections_term_panel.info:0
 msgid "Generates a new page variant for each created EB term panel."
 msgstr ""
 

@@ -7,7 +7,7 @@
 /**
  * Implements hook_uninstall().
  */
-function easyddb_editorial_base_og_integration_uninstall() {
+function ding_sections_og_integration_uninstall() {
   $type = 'editorial_base';
   if (node_type_load($type)) {
     // Remove all related nodes.
@@ -32,7 +32,7 @@ function easyddb_editorial_base_og_integration_uninstall() {
 /**
  * Update OG
  */
-function easyddb_editorial_base_og_integration_update_7001() {
+function ding_sections_og_integration_update_7001() {
   $roles = array(
     array(
       'rid' => 7,

@@ -7,11 +7,11 @@
 /**
  * Implements hook_install().
  */
-function easyddb_editorial_base_install() {
-  _easyddb_editorial_base_create_base();
-  _easyddb_editorial_base_create_fields();
-  easyddb_editorial_base_section_shortcut_create();
-  easyddb_editorial_base_create_image_style();
+function ding_sections_install() {
+  _ding_sections_create_base();
+  _ding_sections_create_fields();
+  ding_sections_section_shortcut_create();
+  ding_sections_create_image_style();
 
   variable_set('editorial_base_content_types', array());
 }
@@ -19,11 +19,11 @@ function easyddb_editorial_base_install() {
 /**
  * Implements hook_uninstall().
  */
-function easyddb_editorial_base_uninstall() {
-  _easyddb_editorial_base_purge_fields();
-  _easyddb_editorial_base_purge_base();
+function ding_sections_uninstall() {
+  _ding_sections_purge_fields();
+  _ding_sections_purge_base();
   image_style_delete(image_style_load('editorial_base_content_image'));
-  easyddb_editorial_base_section_shortcut_delete();
+  ding_sections_section_shortcut_delete();
 
   variable_del('editorial_base_content_types');
 }
@@ -31,7 +31,7 @@ function easyddb_editorial_base_uninstall() {
 /**
  * Create editorial base (Section) vocabulary.
  */
-function _easyddb_editorial_base_create_base() {
+function _ding_sections_create_base() {
   $voc = new stdClass();
   $voc->name = st('Section');
   $voc->machine_name = 'editorial_base';
@@ -200,7 +200,7 @@ function _easyddb_editorial_base_create_base() {
  * Create the field to be used in node bundles,
  * to link content to editorial base vocabulary.
  */
-function _easyddb_editorial_base_create_fields() {
+function _ding_sections_create_fields() {
   $field_definition = array(
     'field_name' => 'field_editorial_base',
     'type' => 'taxonomy_term_reference',
@@ -225,7 +225,7 @@ function _easyddb_editorial_base_create_fields() {
 /**
  * Remove all fields regarding editorial base.
  */
-function _easyddb_editorial_base_purge_fields() {
+function _ding_sections_purge_fields() {
   $node_types = node_type_get_types();
 
   foreach ($node_types as $type) {
@@ -239,7 +239,7 @@ function _easyddb_editorial_base_purge_fields() {
 /**
  * Remove editorial base vocabulary.
  */
-function _easyddb_editorial_base_purge_base() {
+function _ding_sections_purge_base() {
   $voc = taxonomy_vocabulary_machine_name_load('editorial_base');
   if (isset($voc->vid)) {
     taxonomy_vocabulary_delete($voc->vid);
@@ -249,22 +249,22 @@ function _easyddb_editorial_base_purge_base() {
 /**
  * Add a default shortcut to section term creation page.
  */
-function easyddb_editorial_base_update_7000() {
-  easyddb_editorial_base_section_shortcut_create();
+function ding_sections_update_7000() {
+  ding_sections_section_shortcut_create();
 }
 
 /**
  * Create image style for term content image.
  */
-function easyddb_editorial_base_update_7001() {
-  easyddb_editorial_base_create_image_style();
+function ding_sections_update_7001() {
+  ding_sections_create_image_style();
 }
 
 /**
  * Create a link in shortcut menu bar.
  */
-function easyddb_editorial_base_section_shortcut_create() {
-  if (easyddb_editorial_base_section_shortcut_exists()) {
+function ding_sections_section_shortcut_create() {
+  if (ding_sections_section_shortcut_exists()) {
     return;
   }
 
@@ -282,8 +282,8 @@ function easyddb_editorial_base_section_shortcut_create() {
 /**
  * Delete link from the shortcut menu bar.
  */
-function easyddb_editorial_base_section_shortcut_delete() {
-  if (easyddb_editorial_base_section_shortcut_exists()) {
+function ding_sections_section_shortcut_delete() {
+  if (ding_sections_section_shortcut_exists()) {
     return;
   }
 
@@ -305,7 +305,7 @@ function easyddb_editorial_base_section_shortcut_delete() {
  * @return boolean
  *   TRUE if the link exists, FALSE otherwise.
  */
-function easyddb_editorial_base_section_shortcut_exists() {
+function ding_sections_section_shortcut_exists() {
   $shortcut_set = shortcut_set_load(SHORTCUT_DEFAULT_SET_NAME);
 
   foreach ($shortcut_set->links as $link) {
@@ -320,7 +320,7 @@ function easyddb_editorial_base_section_shortcut_exists() {
 /**
  * Create image style for term image.
  */
-function easyddb_editorial_base_create_image_style() {
+function ding_sections_create_image_style() {
   $style = image_style_save(array('name' => 'editorial_base_content_image'));
 
   $effect = array(

@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * easyddb_editorial_base_og_integration.strongarm.inc
+ * ding_sections_og_integration.strongarm.inc
  */
 
 /**
  * Implements hook_strongarm().
  */
-function easyddb_editorial_base_og_integration_strongarm() {
+function ding_sections_og_integration_strongarm() {
   $export = array();
 
   $strongarm = new stdClass();

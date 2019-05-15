@@ -7,7 +7,7 @@
 /**
  * Implements hook_schema().
  */
-function easyddb_editorial_base_term_menu_schema() {
+function ding_sections_term_menu_schema() {
   $schema['eb_term_menu'] = array(
     'description' => st('Map term ids to menu list id.'),
     'fields' => array(

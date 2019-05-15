@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * easyddb_editorial_base_custom_css.features.field_instance.inc
+ * ding_sections_custom_css.features.field_instance.inc
  */
 
 /**
  * Implements hook_field_default_field_instances().
  */
-function easyddb_editorial_base_custom_css_field_default_field_instances() {
+function ding_sections_custom_css_field_default_field_instances() {
   $field_instances = array();
 
   // Exported field_instance: 'taxonomy_term-editorial_base-field_custom_css'

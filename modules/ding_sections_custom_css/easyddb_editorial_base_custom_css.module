@@ -1,14 +1,14 @@
 <?php
 /**
  * @file
- * easyddb_editorial_base_custom_css.module
+ * ding_sections_custom_css.module
  */
 
 /**
  * Implements hook_page_alter().
  * Add custom css on the term view and related node.
  */
-function easyddb_editorial_base_custom_css_page_alter(&$page) {
+function ding_sections_custom_css_page_alter(&$page) {
   $css = '';
   $menu_item = menu_get_active_trail();
   $menu_item = array_reverse($menu_item);
